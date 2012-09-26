@@ -60,47 +60,7 @@ public class notaLista extends Metodos implements FieldChangeListener {
 	 }catch (ClassNotFoundException e){
 	 	   System.out.println(e.getMessage());
 	 }
-	 try{
-     	URI uri1 = URI.create(path.Path());
-     	Database sqliteDB1 = DatabaseFactory.open(uri1);
-	         Statement se1 = sqliteDB1.createStatement(statement.SelectNomMateria()+idMateria);
-	         se1.prepare();
-	         Cursor c1 = se1.getCursor();
-	         Row r1;
-             while(c1.next()){
-                 r1 = c1.getRow();
-                 setTitle(r1.getString(0));
-             	}
-	         se1.close();
-	         sqliteDB1.close();
 
-	   }catch(Exception e){
-	         Dialog.alert("error al hacer la lista "+e.getMessage().toString());
-	         e.printStackTrace();
-	         } 
-	 	
-		//Comieza el select de el titulo y la fecha para ser mostrada en cada una de las listas;
-     try{
-     	URI uri = URI.create(path.Path());
-     	Database sqliteDB = DatabaseFactory.open(uri);
-             Statement se = sqliteDB.createStatement(statement.SelectTitulo()+idMateria+"");
-             se.prepare();
-             Cursor c = se.getCursor();
-             Row r;
-             int i = 0;
-             while(c.next()){ 
-              r = c.getRow();
-              val = r.getString(2);
-              //si el resultado de la busqueda retorna el string 
-              //direccion toma el valor del string mas la extension de imagen .png
-				 if(val.equals("Alta")){
-					direccion="tagAlta.png";				
-					}else if(val.equals("Media")){
-						direccion = "tagMedia.png";
-						}else if(val.equals("Baja")){
-							direccion = "tagBaja.png"; 
-							}
-				//asigna a tagBitmap la direccion de la imagen antes asignado
 				tagBitmap = Bitmap.getBitmapResource(direccion);
 
 				bb.addElement(new BitmapButtonField(Bitmap.getBitmapResource(direccion), Bitmap.getBitmapResource("barraboton2.png"), BitmapButtonField.FIELD_LEFT | BitmapButtonField.FIELD_VCENTER));
@@ -121,11 +81,7 @@ public class notaLista extends Metodos implements FieldChangeListener {
                    }};;
                    titulo.setMargin(0,0,0,5);
 				
-				/**LabelField fecha = new LabelField(r.getString(3)){
-                    public void paint(Graphics g){      
-                        g.setColor(Color.WHITE);
-                        super.paint(g);
-                   }};;*/
+
 				
 				idApunte.addElement(""+r.getInteger(1));
 				//CREAR ELEMENTO DE LISTA
@@ -143,73 +99,10 @@ public class notaLista extends Metodos implements FieldChangeListener {
 				elementolista.add(elemento);
 				add(elementolista);		
 				
-                 i++;
-             }
-             se.close();
-             sqliteDB.close();
-             
+
              //si el SELECT de notas no retorna nada muestra un error en pantalla
-           if(i==0){
-            WLabelField nohay = new WLabelField("No hay ninguna nota aun!\n\n"
-             +"Para crear una nota \n\n"
-             +"precione menú y eliga \n\n"
-             +"'Nuevo Apunte'");
-             
-            nohay.setMargin(39,0,0,65);
-			add(nohay);
-             }
- 		
-     }catch (Exception e){
-     Dialog.alert("error al hacer la lista "+e.getMessage().toString());
-     e.printStackTrace();
-     	}   
-    	//elemento menu item para crear un Nuevo Apunte
-    	MenuItem mymenu = new MenuItem("Nuevo Apunte" , 100, 1){
-    	    public void run(){
-    	       //al precionar el boton dirige a nota crear y pasa el idMateria a la siguiente pantalla
-    	    	openScreen(new notaCrear(idMateria));
-    	    }
-    	};
-    	//elemento menu item para Eliminar toda la lista de apuntes "por materia"
-    	MenuItem mymenu2 = new MenuItem("Eliminar todo" , 100, 2){
-    	    public void run(){
-    	    	//elemento de pregunta si desea eliminar o cancelar la operacion
-    	    	UiApplication.getUiApplication().invokeLater(new Runnable(){
-    				public void run(){
-
-    					Object[] choices = new Object[] {"Cancelar", "Eliminar" };
-    					int result = Dialog.ask("Desea eliminar todo?", choices, 0);
-    					//por medio de case se elige por numero de posicion del array de choices
-    					switch (result) {
-    					//si la eleccion es 0 osea cancelar solamente cierra el ask
-    					case 0:
-    						break;
-    					case 1:
-    					//si la eleccion es 1 entonces procede eliminar la lista de apuntes por idMateria	
-    						try{
-    		    	    	   	URI uri1 = URI.create(path.Path());
-    	    		         	Database sqliteDB1 = DatabaseFactory.open(uri1);
-    	    		         	Statement st = sqliteDB1.createStatement(statement.DeleteTodo()+idMateria);
-    	    		            st.prepare();
-    	    		            st.execute();
-    	    		            st.close();
-    	    		            sqliteDB1.close();
-    	    		            Dialog.alert("Eliminado");
-    	    		         }catch (Exception e){
-    	    		         Dialog.alert("Error al eliminar "+e.getMessage().toString());
-    	    		         e.printStackTrace();
-    	    		         }
-    						openScreen(new materiaLista());
-    						break;
-    					}				
-    				}});
-
-    	    	  
-    	    	         }
-    	    	};
-    	//agrega los dos elementos al menu del dispositivo   	
-        addMenuItem(mymenu);
-    	addMenuItem(mymenu2);
+          
+    	
 }
 	public void fieldChanged(Field field, int context) {
 		// TODO Auto-generated method stub
@@ -234,7 +127,7 @@ public class notaLista extends Metodos implements FieldChangeListener {
 	        transition.setIntAttribute(TransitionContext.ATTR_STYLE, TransitionContext.STYLE_PUSH);
 	        UiEngineInstance engine = Ui.getUiEngineInstance();
 	        engine.setTransition(this, null, UiEngineInstance.TRIGGER_PUSH, transition);
-		openScreen(new materiaLista());
+		openScreen(new CategoriaLista());
 		return true;
 	}
 

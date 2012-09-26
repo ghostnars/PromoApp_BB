@@ -70,7 +70,7 @@ public class SplashScreen extends MainScreen {
             }
 
         // wait then open new screen
-        MyApp.homeScreen = new materiaLista();
+        MyApp.homeScreen = new CategoriaLista();
         MyApp.homeScreen1 = new Registro();
         UiApplication.getUiApplication().invokeLater(new Runnable() {
         	
