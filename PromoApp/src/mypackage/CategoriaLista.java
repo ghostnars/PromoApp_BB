@@ -40,6 +40,7 @@ public class CategoriaLista extends Metodos{
 	
 			if(materias[0]== field){
 				Dialog.alert("boton 1");
+				openScreen(new AfiliadosLista());
 			}	
 			else if(materias[1]== field){
 				Dialog.alert("boton 2");

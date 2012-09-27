@@ -248,7 +248,7 @@ public class notaModificar extends Metodos implements FieldChangeListener {
 				         Dialog.alert("Error al eliminar "+e.getMessage().toString());
 				         e.printStackTrace();
 				         	}
-						openScreen(new notaLista(idMateria));
+						openScreen(new AfiliadosLista());
 						break;
 					}				
 		}});
@@ -278,7 +278,7 @@ public class notaModificar extends Metodos implements FieldChangeListener {
 	        UiEngineInstance engine = Ui.getUiEngineInstance();
 	        engine.setTransition(this, null, UiEngineInstance.TRIGGER_PUSH, transition);
 		
-		openScreen(new notaLista(idMateria));
+		openScreen(new AfiliadosLista());
 		return true;
 	}
 

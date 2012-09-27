@@ -30,9 +30,10 @@ import net.rim.device.api.ui.container.VerticalFieldManager;
 import net.rim.device.api.ui.decor.BackgroundFactory;
 import net.rim.device.api.ui.decor.BorderFactory;
 import estilos.BitmapButtonField;
+import estilos.ListStyleButtonField;
 import estilos.Metodos;
 
-public class notaLista extends Metodos implements FieldChangeListener {
+public class AfiliadosLista extends Metodos implements FieldChangeListener {
 	BasicEditField nota;
 	EditField efTitulo;	
 	Vector idApunte = new Vector();
@@ -47,11 +48,11 @@ public class notaLista extends Metodos implements FieldChangeListener {
 	Bitmap tagBitmap;
 	String direccion;
 	private Font ffecha;
-    public notaLista(int id_materia)
+    public AfiliadosLista()
     {  
-	 getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.BLACK, Color.BLACK,Color.BLACK,Color.BLACK));
-	 idMateria = id_materia;
-	 Bitmap elementoBitmap = Bitmap.getBitmapResource("fondomaterias.png");
+    	setTitle("Afiliados");
+		getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.WHITE, Color.GAINSBORO,Color.GAINSBORO,Color.WHITE));
+
 	 try
 	 {
 	 	FontFamily ffFont = FontFamily.forName("Arial");
@@ -60,45 +61,19 @@ public class notaLista extends Metodos implements FieldChangeListener {
 	 }catch (ClassNotFoundException e){
 	 	   System.out.println(e.getMessage());
 	 }
+		Bitmap buttonRight = Bitmap.getBitmapResource( "flecha.png" );
+		Bitmap button1left = Bitmap.getBitmapResource( "pizza.png" );
 
-				tagBitmap = Bitmap.getBitmapResource(direccion);
-
-				bb.addElement(new BitmapButtonField(Bitmap.getBitmapResource(direccion), Bitmap.getBitmapResource("barraboton2.png"), BitmapButtonField.FIELD_LEFT | BitmapButtonField.FIELD_VCENTER));
+				for(int i=0;i<=10;i++){
+				bb.addElement(new ListStyleButtonField( button1left, "\tRestaurantes\n\tPizza Hut\n\tLocal"+i, buttonRight, 0 ));
+				((Field) bb.elementAt(i)).setBackground(BackgroundFactory.createLinearGradientBackground(Color.GAINSBORO, Color.WHITE,Color.WHITE,Color.GAINSBORO)) ; 
 				((Field) bb.elementAt(i)).setChangeListener(this);
-				((Field) bb.elementAt(i)).setMargin(0, 0, 0, 0);
-				LabelField fech = new LabelField(r.getString(3)){
-                    public void paint(Graphics g){      
-                        g.setColor(Color.WHITE);
-                        super.paint(g);
-                   }};;
-                   fech.setFont(ffecha);
-                   fech.setMargin(0,0,0,5);
-				//ASIGNA TEXTO AL EL ELEMENTO DE LISTA
-				LabelField titulo = new LabelField(r.getString(0)){
-                    public void paint(Graphics g){      
-                        g.setColor(Color.WHITE);
-                        super.paint(g);
-                   }};;
-                   titulo.setMargin(0,0,0,5);
+				((Field) bb.elementAt(i)).setMargin(0, 0, 5, 0);
+
+				add((Field)bb.elementAt(i));
 				
 
-				
-				idApunte.addElement(""+r.getInteger(1));
-				//CREAR ELEMENTO DE LISTA
-				HorizontalFieldManager elementolista = new HorizontalFieldManager(Field.USE_ALL_WIDTH | Field.FIELD_VCENTER);
-				elementolista.setBorder(BorderFactory.createBitmapBorder(new XYEdges(0,1,0,0), elementoBitmap));
-				VerticalFieldManager elemento = new VerticalFieldManager(Field.USE_ALL_WIDTH | Field.FIELD_VCENTER);
-				//elementolista.setBorder(BorderFactory.createBitmapBorder(new XYEdges(0,0,0,5), tagBitmap));
-				//AGREGAR A PANTALLA CADA ELEMENTO		
-				elementolista.setMargin(3,3,3,3);
-				elementolista.add((Field)bb.elementAt(i));
-				
-				//elementolista.add(bfTag);
-				elemento.add(titulo);
-				elemento.add(fech);
-				elementolista.add(elemento);
-				add(elementolista);		
-				
+				}
 
              //si el SELECT de notas no retorna nada muestra un error en pantalla
           
@@ -108,13 +83,14 @@ public class notaLista extends Metodos implements FieldChangeListener {
 		// TODO Auto-generated method stub
 		for(int j=0;j<=bb.size()-1;j++){
 			if( bb.elementAt(j)== field ){
-				TransitionContext transition = new TransitionContext(TransitionContext.TRANSITION_SLIDE);
+				/*TransitionContext transition = new TransitionContext(TransitionContext.TRANSITION_SLIDE);
 				transition.setIntAttribute(TransitionContext.ATTR_DURATION, 500);
 				transition.setIntAttribute(TransitionContext.ATTR_DIRECTION, TransitionContext.DIRECTION_LEFT);
 				transition.setIntAttribute(TransitionContext.ATTR_STYLE, TransitionContext.STYLE_PUSH);
 				UiEngineInstance engine = Ui.getUiEngineInstance();
 				engine.setTransition(this, null, UiEngineInstance.TRIGGER_PUSH, transition);
-			openScreen(new notaModificar(idMateria,(String) idApunte.elementAt(j)));
+			openScreen(new notaModificar(idMateria,(String) idApunte.elementAt(j)));*/
+				Dialog.alert("boton "+ j);
 			}
 		}
 	}

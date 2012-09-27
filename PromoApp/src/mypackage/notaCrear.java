@@ -199,7 +199,7 @@ public class notaCrear extends Metodos implements FieldChangeListener {
 	        transition.setIntAttribute(TransitionContext.ATTR_STYLE, TransitionContext.STYLE_PUSH);
 	        UiEngineInstance engine = Ui.getUiEngineInstance();
 	        engine.setTransition(this, null, UiEngineInstance.TRIGGER_PUSH, transition);
-		openScreen(new notaLista(idMateria));
+		openScreen(new AfiliadosLista());
 		return true;
 	}
 
