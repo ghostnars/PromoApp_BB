@@ -6,6 +6,9 @@ import java.util.Vector;
 import net.rim.device.api.system.Bitmap;
 import net.rim.device.api.ui.Color;
 import net.rim.device.api.ui.Field;
+import net.rim.device.api.ui.TransitionContext;
+import net.rim.device.api.ui.Ui;
+import net.rim.device.api.ui.UiEngineInstance;
 import net.rim.device.api.ui.component.Dialog;
 import net.rim.device.api.ui.decor.BackgroundFactory;
 import estilos.BitmapButtonField;
@@ -29,7 +32,7 @@ public class CategoriaLista extends Metodos{
     		for(int i=0;i<=6;i++){
     			materias[i]= new ListStyleButtonField( button1left, "\t\nRestaurantes\n\n", buttonRight, 0 );
     			materias[i].setBackground(BackgroundFactory.createLinearGradientBackground(Color.GAINSBORO, Color.WHITE,Color.WHITE,Color.GAINSBORO)) ; 
-    			materias[i].setMargin(2, 0, 2, 0);
+    			materias[i].setMargin(0, 0, 4, 0);
     			materias[i].setChangeListener(this);
     			add(materias[i]);
     		}
@@ -39,7 +42,12 @@ public class CategoriaLista extends Metodos{
 	public void fieldChanged(Field field, int context) {
 	
 			if(materias[0]== field){
-				Dialog.alert("boton 1");
+				TransitionContext transition = new TransitionContext(TransitionContext.TRANSITION_SLIDE);
+				transition.setIntAttribute(TransitionContext.ATTR_DURATION, 200);
+				transition.setIntAttribute(TransitionContext.ATTR_DIRECTION, TransitionContext.DIRECTION_LEFT);
+				transition.setIntAttribute(TransitionContext.ATTR_STYLE, TransitionContext.STYLE_PUSH);
+				UiEngineInstance engine = Ui.getUiEngineInstance();
+				engine.setTransition(this, null, UiEngineInstance.TRIGGER_PUSH, transition);
 				openScreen(new AfiliadosLista());
 			}	
 			else if(materias[1]== field){

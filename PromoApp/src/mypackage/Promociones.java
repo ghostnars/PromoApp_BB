@@ -17,7 +17,7 @@ import net.rim.device.api.ui.decor.BackgroundFactory;
 import estilos.ListStyleButtonField;
 import estilos.Metodos;
 
-public class AfiliadosLista extends Metodos implements FieldChangeListener {
+public class Promociones extends Metodos implements FieldChangeListener {
 	BasicEditField nota;
 	EditField efTitulo;	
 	Vector idApunte = new Vector();
@@ -33,9 +33,9 @@ public class AfiliadosLista extends Metodos implements FieldChangeListener {
 	String direccion;
 	private Font ffecha;
 	Vector integer= new Vector();
-    public AfiliadosLista()
+    public Promociones()
     {  
-    	setTitle("Afiliados");
+    	setTitle("Promociones");
 		getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.GAINSBORO, Color.SILVER,Color.SILVER,Color.GAINSBORO));
 
 	 try
@@ -47,13 +47,12 @@ public class AfiliadosLista extends Metodos implements FieldChangeListener {
 	 	   System.out.println(e.getMessage());
 	 }
 		Bitmap buttonRight = Bitmap.getBitmapResource( "flecha.png" );
-		Bitmap button1left = Bitmap.getBitmapResource( "ph.png" );
+		Bitmap button1left = Bitmap.getBitmapResource( "pizza.png" );
 		
 				for(int i=0;i<=10;i++){
 					String nombre = "PIZZA HUT";
-					String slogan ="Las mejores pizzas";
-					String ubicacion="8º etapa local ";
-				bb.addElement(new ListStyleButtonField( button1left, nombre+"\n"+slogan+"\n"+ubicacion+i+"\n\n", buttonRight, 0 ));
+					String promo =" pizzas gratis";
+				bb.addElement(new ListStyleButtonField( button1left, "\n"+nombre+"\n"+i+promo+"\n\n", buttonRight, 0 ));
 				((Field) bb.elementAt(i)).setBackground(BackgroundFactory.createLinearGradientBackground(Color.GAINSBORO, Color.WHITE,Color.WHITE,Color.GAINSBORO)) ; 
 				((Field) bb.elementAt(i)).setChangeListener(this);
 				((Field) bb.elementAt(i)).setMargin(0, 0, 3, 0);
@@ -77,7 +76,7 @@ public class AfiliadosLista extends Metodos implements FieldChangeListener {
 				UiEngineInstance engine = Ui.getUiEngineInstance();
 				engine.setTransition(this, null, UiEngineInstance.TRIGGER_PUSH, transition);
 			//openScreen(new notaModificar(idMateria,(String) idApunte.elementAt(j)));
-				openScreen(new AfiliadosMenu());
+				openScreen(new PromoDescripcion());
 				
 			}
 		}
@@ -91,7 +90,7 @@ public class AfiliadosLista extends Metodos implements FieldChangeListener {
 	        transition.setIntAttribute(TransitionContext.ATTR_STYLE, TransitionContext.STYLE_PUSH);
 	        UiEngineInstance engine = Ui.getUiEngineInstance();
 	        engine.setTransition(this, null, UiEngineInstance.TRIGGER_PUSH, transition);
-		openScreen(new CategoriaLista());
+		openScreen(new AfiliadosMenu());
 		return true;
 	}
 
