@@ -1,5 +1,6 @@
 package mypackage;
 
+import contactanos.Contactanos;
 import net.rim.device.api.system.Bitmap;
 import net.rim.device.api.ui.Color;
 import net.rim.device.api.ui.Field;
@@ -15,10 +16,12 @@ import net.rim.device.api.ui.component.Dialog;
 import net.rim.device.api.ui.component.EditField;
 import net.rim.device.api.ui.component.LabelField;
 import net.rim.device.api.ui.component.ObjectChoiceField;
-import net.rim.device.api.ui.container.GridFieldManager;
 import net.rim.device.api.ui.container.HorizontalFieldManager;
 import net.rim.device.api.ui.container.VerticalFieldManager;
 import net.rim.device.api.ui.decor.BackgroundFactory;
+import ofertas.Ofertas;
+import noticias.Noticias;
+import promociones.Promociones;
 import estilos.BitmapButtonField;
 import estilos.Metodos;
 
@@ -38,8 +41,6 @@ public class AfiliadosMenu extends Metodos implements FieldChangeListener {
 	EditField efTitulo,efNota;	
 	ObjectChoiceField ocfPrioridad;
 	String choices[] = {"Alta","Media","Baja"};
-	Config path = new Config();
-	Config statement = new Config();
 	String valorinteger;
 	int idMateria;
 	DateField fecha;
@@ -145,13 +146,31 @@ public class AfiliadosMenu extends Metodos implements FieldChangeListener {
 			openScreen(new Promociones());
 		}	
 		else if(btnOfertas== field){
-			Dialog.alert("boton 2");
+			TransitionContext transition = new TransitionContext(TransitionContext.TRANSITION_SLIDE);
+			transition.setIntAttribute(TransitionContext.ATTR_DURATION, 200);
+			transition.setIntAttribute(TransitionContext.ATTR_DIRECTION, TransitionContext.DIRECTION_LEFT);
+			transition.setIntAttribute(TransitionContext.ATTR_STYLE, TransitionContext.STYLE_PUSH);
+			UiEngineInstance engine = Ui.getUiEngineInstance();
+			engine.setTransition(this, null, UiEngineInstance.TRIGGER_PUSH, transition);
+			openScreen(new Ofertas());
 		}	
 		else if(btnNoticias== field){
-			Dialog.alert("boton 3");
+			TransitionContext transition = new TransitionContext(TransitionContext.TRANSITION_SLIDE);
+			transition.setIntAttribute(TransitionContext.ATTR_DURATION, 200);
+			transition.setIntAttribute(TransitionContext.ATTR_DIRECTION, TransitionContext.DIRECTION_LEFT);
+			transition.setIntAttribute(TransitionContext.ATTR_STYLE, TransitionContext.STYLE_PUSH);
+			UiEngineInstance engine = Ui.getUiEngineInstance();
+			engine.setTransition(this, null, UiEngineInstance.TRIGGER_PUSH, transition);
+			openScreen(new Noticias());
 		}
 		else if(btnContact== field){
-			Dialog.alert("boton 4");
+			TransitionContext transition = new TransitionContext(TransitionContext.TRANSITION_SLIDE);
+			transition.setIntAttribute(TransitionContext.ATTR_DURATION, 200);
+			transition.setIntAttribute(TransitionContext.ATTR_DIRECTION, TransitionContext.DIRECTION_LEFT);
+			transition.setIntAttribute(TransitionContext.ATTR_STYLE, TransitionContext.STYLE_PUSH);
+			UiEngineInstance engine = Ui.getUiEngineInstance();
+			engine.setTransition(this, null, UiEngineInstance.TRIGGER_PUSH, transition);
+			openScreen(new Contactanos());
 		}
 		
 		

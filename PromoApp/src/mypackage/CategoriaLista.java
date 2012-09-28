@@ -25,14 +25,14 @@ public class CategoriaLista extends Metodos{
 	
 	public CategoriaLista(){
 			setTitle("Categorias");
-			getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.WHITE, Color.GAINSBORO,Color.GAINSBORO,Color.WHITE));
+			getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.GAINSBORO, Color.SILVER,Color.SILVER,Color.GAINSBORO));
 	
 			Bitmap buttonRight = Bitmap.getBitmapResource( "flecha.png" );
 			Bitmap button1left = Bitmap.getBitmapResource( "pizza.png" );
     		for(int i=0;i<=6;i++){
     			materias[i]= new ListStyleButtonField( button1left, "\t\nRestaurantes\n\n", buttonRight, 0 );
     			materias[i].setBackground(BackgroundFactory.createLinearGradientBackground(Color.GAINSBORO, Color.WHITE,Color.WHITE,Color.GAINSBORO)) ; 
-    			materias[i].setMargin(0, 0, 4, 0);
+    			materias[i].setMargin(0, 0, 3, 0);
     			materias[i].setChangeListener(this);
     			add(materias[i]);
     		}

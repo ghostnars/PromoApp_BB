@@ -1,13 +1,12 @@
-package mypackage;
+package promociones;
 
 import java.util.Vector;
 
+import mypackage.AfiliadosMenu;
 import net.rim.device.api.system.Bitmap;
 import net.rim.device.api.ui.Color;
 import net.rim.device.api.ui.Field;
 import net.rim.device.api.ui.FieldChangeListener;
-import net.rim.device.api.ui.Font;
-import net.rim.device.api.ui.FontFamily;
 import net.rim.device.api.ui.TransitionContext;
 import net.rim.device.api.ui.Ui;
 import net.rim.device.api.ui.UiEngineInstance;
@@ -20,10 +19,6 @@ import estilos.Metodos;
 public class Promociones extends Metodos implements FieldChangeListener {
 	BasicEditField nota;
 	EditField efTitulo;	
-	Vector idApunte = new Vector();
-	Vector Prioridad = new Vector();
-	Config path = new Config();
-	Config statement = new Config();
 	int idMateria;
 	Vector bb = new Vector();
 	Vector Codigo = new Vector();
@@ -31,21 +26,13 @@ public class Promociones extends Metodos implements FieldChangeListener {
 	String mensaje;
 	Bitmap tagBitmap;
 	String direccion;
-	private Font ffecha;
 	Vector integer= new Vector();
     public Promociones()
     {  
     	setTitle("Promociones");
 		getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.GAINSBORO, Color.SILVER,Color.SILVER,Color.GAINSBORO));
 
-	 try
-	 {
-	 	FontFamily ffFont = FontFamily.forName("Arial");
-	 	ffecha = ffFont.getFont(Font.ANTIALIAS_DEFAULT, 5);
-	 	
-	 }catch (ClassNotFoundException e){
-	 	   System.out.println(e.getMessage());
-	 }
+
 		Bitmap buttonRight = Bitmap.getBitmapResource( "flecha.png" );
 		Bitmap button1left = Bitmap.getBitmapResource( "pizza.png" );
 		
@@ -85,7 +72,7 @@ public class Promociones extends Metodos implements FieldChangeListener {
 	public boolean onClose() {
 		//fuerza la app a cerrar o envia a la page que se desee con tranciciones y direccion
 		 TransitionContext transition = new TransitionContext(TransitionContext.TRANSITION_SLIDE);
-	        transition.setIntAttribute(TransitionContext.ATTR_DURATION, 500);
+	        transition.setIntAttribute(TransitionContext.ATTR_DURATION, 200);
 	        transition.setIntAttribute(TransitionContext.ATTR_DIRECTION, TransitionContext.DIRECTION_RIGHT);
 	        transition.setIntAttribute(TransitionContext.ATTR_STYLE, TransitionContext.STYLE_PUSH);
 	        UiEngineInstance engine = Ui.getUiEngineInstance();

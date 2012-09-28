@@ -1,13 +1,12 @@
-package mypackage;
+package noticias;
 
 import java.util.Vector;
 
+import mypackage.AfiliadosMenu;
 import net.rim.device.api.system.Bitmap;
 import net.rim.device.api.ui.Color;
 import net.rim.device.api.ui.Field;
 import net.rim.device.api.ui.FieldChangeListener;
-import net.rim.device.api.ui.Font;
-import net.rim.device.api.ui.FontFamily;
 import net.rim.device.api.ui.TransitionContext;
 import net.rim.device.api.ui.Ui;
 import net.rim.device.api.ui.UiEngineInstance;
@@ -17,11 +16,9 @@ import net.rim.device.api.ui.decor.BackgroundFactory;
 import estilos.ListStyleButtonField;
 import estilos.Metodos;
 
-public class AfiliadosLista extends Metodos implements FieldChangeListener {
+public class Noticias extends Metodos implements FieldChangeListener {
 	BasicEditField nota;
 	EditField efTitulo;	
-	Vector idApunte = new Vector();
-	Vector Prioridad = new Vector();
 	int idMateria;
 	Vector bb = new Vector();
 	Vector Codigo = new Vector();
@@ -29,29 +26,21 @@ public class AfiliadosLista extends Metodos implements FieldChangeListener {
 	String mensaje;
 	Bitmap tagBitmap;
 	String direccion;
-	private Font ffecha;
+
 	Vector integer= new Vector();
-    public AfiliadosLista()
+    public Noticias()
     {  
-    	setTitle("Afiliados");
+    	setTitle("Noticias");
 		getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.GAINSBORO, Color.SILVER,Color.SILVER,Color.GAINSBORO));
 
-	 try
-	 {
-	 	FontFamily ffFont = FontFamily.forName("Arial");
-	 	ffecha = ffFont.getFont(Font.ANTIALIAS_DEFAULT, 5);
-	 	
-	 }catch (ClassNotFoundException e){
-	 	   System.out.println(e.getMessage());
-	 }
 		Bitmap buttonRight = Bitmap.getBitmapResource( "flecha.png" );
-		Bitmap button1left = Bitmap.getBitmapResource( "ph.png" );
+		Bitmap button1left = Bitmap.getBitmapResource( "nph.png" );
 		
 				for(int i=0;i<=10;i++){
 					String nombre = "PIZZA HUT";
-					String slogan ="Las mejores pizzas";
-					String ubicacion="8º etapa local ";
-				bb.addElement(new ListStyleButtonField( button1left, nombre+"\n"+slogan+"\n"+ubicacion+i+"\n\n", buttonRight, 0 ));
+					String noticia ="Cambiamos de logo";
+					String fecha ="55/09/12";
+				bb.addElement(new ListStyleButtonField( button1left,"\n"+nombre+"\n"+noticia+i+"\n"+fecha+"\n\n", buttonRight, 0 ));
 				((Field) bb.elementAt(i)).setBackground(BackgroundFactory.createLinearGradientBackground(Color.GAINSBORO, Color.WHITE,Color.WHITE,Color.GAINSBORO)) ; 
 				((Field) bb.elementAt(i)).setChangeListener(this);
 				((Field) bb.elementAt(i)).setMargin(0, 0, 3, 0);
@@ -75,7 +64,7 @@ public class AfiliadosLista extends Metodos implements FieldChangeListener {
 				UiEngineInstance engine = Ui.getUiEngineInstance();
 				engine.setTransition(this, null, UiEngineInstance.TRIGGER_PUSH, transition);
 			//openScreen(new notaModificar(idMateria,(String) idApunte.elementAt(j)));
-				openScreen(new AfiliadosMenu());
+				openScreen(new NoticiasDescripcion());
 				
 			}
 		}
@@ -89,7 +78,7 @@ public class AfiliadosLista extends Metodos implements FieldChangeListener {
 	        transition.setIntAttribute(TransitionContext.ATTR_STYLE, TransitionContext.STYLE_PUSH);
 	        UiEngineInstance engine = Ui.getUiEngineInstance();
 	        engine.setTransition(this, null, UiEngineInstance.TRIGGER_PUSH, transition);
-		openScreen(new CategoriaLista());
+		openScreen(new AfiliadosMenu());
 		return true;
 	}
 
