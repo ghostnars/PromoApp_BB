@@ -8,6 +8,7 @@ import net.rim.device.api.ui.Field;
 import net.rim.device.api.ui.FieldChangeListener;
 import net.rim.device.api.ui.Font;
 import net.rim.device.api.ui.FontFamily;
+import net.rim.device.api.ui.Graphics;
 import net.rim.device.api.ui.TransitionContext;
 import net.rim.device.api.ui.Ui;
 import net.rim.device.api.ui.UiEngineInstance;
@@ -34,7 +35,7 @@ public class AfiliadosLista extends Metodos implements FieldChangeListener {
     public AfiliadosLista()
     {  
     	setTitle("Afiliados");
-		getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.GAINSBORO, Color.SILVER,Color.SILVER,Color.GAINSBORO));
+		getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.SILVER, Color.BLACK,Color.BLACK,Color.SILVER));
 
 	 try
 	 {
@@ -44,17 +45,21 @@ public class AfiliadosLista extends Metodos implements FieldChangeListener {
 	 }catch (ClassNotFoundException e){
 	 	   System.out.println(e.getMessage());
 	 }
-		Bitmap buttonRight = Bitmap.getBitmapResource( "flecha.png" );
+		Bitmap buttonRight = Bitmap.getBitmapResource( "next.png" );
 		Bitmap button1left = Bitmap.getBitmapResource( "ph.png" );
 		
 				for(int i=0;i<=10;i++){
 					String nombre = "PIZZA HUT";
 					String slogan ="Las mejores pizzas";
 					String ubicacion="8º etapa local ";
-				bb.addElement(new ListStyleButtonField( button1left, nombre+"\n"+slogan+"\n"+ubicacion+i+"\n\n", buttonRight, 0 ));
-				((Field) bb.elementAt(i)).setBackground(BackgroundFactory.createLinearGradientBackground(Color.GAINSBORO, Color.WHITE,Color.WHITE,Color.GAINSBORO)) ; 
+				bb.addElement(new ListStyleButtonField( button1left, nombre+"\n"+slogan+"\n"+ubicacion+i+"\n\n", buttonRight, 0 ){
+                    public void paint(Graphics g){      
+                        g.setColor(Color.WHITE);
+                        super.paint(g);
+                   }});
+				((Field) bb.elementAt(i)).setBackground(BackgroundFactory.createLinearGradientBackground(Color.STEELBLUE, Color.STEELBLUE,Color.LIGHTSTEELBLUE,Color.LIGHTSTEELBLUE)) ; 
 				((Field) bb.elementAt(i)).setChangeListener(this);
-				((Field) bb.elementAt(i)).setMargin(0, 0, 3, 0);
+				((Field) bb.elementAt(i)).setMargin(0, 0, 2, 0);
 				add((Field)bb.elementAt(i));
 				
 

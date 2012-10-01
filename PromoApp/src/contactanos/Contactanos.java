@@ -44,7 +44,7 @@ public class Contactanos extends Metodos implements FieldChangeListener {
 
 public Contactanos(){
 		setTitle("Contactanos");
-		getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.GAINSBORO, Color.GAINSBORO,Color.GAINSBORO,Color.GAINSBORO));
+		getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.LIGHTSTEELBLUE, Color.LIGHTSTEELBLUE,Color.GAINSBORO,Color.GAINSBORO));
 		 try
 		 {
 		 	FontFamily ffFont = FontFamily.forName("Arial");

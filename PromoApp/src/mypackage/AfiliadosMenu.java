@@ -7,6 +7,7 @@ import net.rim.device.api.ui.Field;
 import net.rim.device.api.ui.FieldChangeListener;
 import net.rim.device.api.ui.Font;
 import net.rim.device.api.ui.FontFamily;
+import net.rim.device.api.ui.Graphics;
 import net.rim.device.api.ui.TransitionContext;
 import net.rim.device.api.ui.Ui;
 import net.rim.device.api.ui.UiEngineInstance;
@@ -53,7 +54,7 @@ public class AfiliadosMenu extends Metodos implements FieldChangeListener {
 	private BitmapButtonField btnPromo;
     public AfiliadosMenu()
     {
-    	getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.GAINSBORO, Color.SILVER,Color.WHITE,Color.WHITE));
+    	getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.LIGHTSTEELBLUE, Color.LIGHTSTEELBLUE,Color.GAINSBORO,Color.GAINSBORO));
 		
    	 try
    	 {
@@ -73,9 +74,21 @@ public class AfiliadosMenu extends Metodos implements FieldChangeListener {
     	//Bitmap botonBitmap = Bitmap.getBitmapResource( "fondoboton.png" );
 	VerticalFieldManager allContent = new VerticalFieldManager(VerticalFieldManager.FIELD_HCENTER | VerticalFieldManager.USE_ALL_WIDTH);
 	
-	LabelField nombre = new LabelField("PIZZA HUT",Field.FIELD_LEFT);
-	LabelField slogan = new LabelField("Las mejores pizzas bajo el techo rojo",Field.FIELD_LEFT);
-	LabelField local = new LabelField("Local numero 30",Field.FIELD_LEFT);
+	LabelField nombre = new LabelField("PIZZA HUT",Field.FIELD_LEFT){
+        public void paint(Graphics g){      
+            g.setColor(Color.WHITE);
+            super.paint(g);
+       }};
+	LabelField slogan = new LabelField("Las mejores pizzas bajo el techo rojo",Field.FIELD_LEFT){
+        public void paint(Graphics g){      
+            g.setColor(Color.WHITE);
+            super.paint(g);
+       }};
+	LabelField local = new LabelField("Local numero 30",Field.FIELD_LEFT){
+        public void paint(Graphics g){      
+            g.setColor(Color.WHITE);
+            super.paint(g);
+       }};
 	
 	nombre.setMargin(6,0,3,10);
 	slogan.setMargin(0,0,3,10);
@@ -83,7 +96,7 @@ public class AfiliadosMenu extends Metodos implements FieldChangeListener {
 	local.setMargin(0,0,3,10);
 	
 	HorizontalFieldManager head = new HorizontalFieldManager(HorizontalFieldManager.FIELD_LEFT | HorizontalFieldManager.USE_ALL_WIDTH );
-	head.setBackground(BackgroundFactory.createLinearGradientBackground(Color.GAINSBORO, Color.WHITE,Color.GAINSBORO,Color.WHITE));
+	head.setBackground(BackgroundFactory.createLinearGradientBackground(Color.STEELBLUE, Color.STEELBLUE,Color.LIGHTSTEELBLUE,Color.LIGHTSTEELBLUE));
 
 	HorizontalFieldManager logo = new HorizontalFieldManager(HorizontalFieldManager.FIELD_LEFT );
 	logo.setBackground(BackgroundFactory.createBitmapBackground(logoBitmap));

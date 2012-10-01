@@ -40,7 +40,7 @@ public class OfertasDescripcion extends Metodos implements FieldChangeListener {
 		 	   System.out.println(e.getMessage());
 		 }
 
-		 getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.GAINSBORO, Color.SILVER,Color.WHITE,Color.GAINSBORO));
+		 getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.LIGHTSTEELBLUE, Color.LIGHTSTEELBLUE,Color.GAINSBORO,Color.GAINSBORO));
 			
 		Bitmap logoBitmap = Bitmap.getBitmapResource( "imgPromo.jpg" );
 		Bitmap backBitmap = Bitmap.getBitmapResource( "dbackground.png" );
@@ -94,7 +94,7 @@ public class OfertasDescripcion extends Metodos implements FieldChangeListener {
 
 		
 		GridFieldManager grid = new GridFieldManager(4,1,0); 
-		grid.setBackground(BackgroundFactory.createBitmapBackground(backBitmap));
+		grid.setBackground(BackgroundFactory.createLinearGradientBackground(Color.LIGHTSTEELBLUE, Color.LIGHTSTEELBLUE,Color.GAINSBORO,Color.GAINSBORO));
 		
         grid.add(descripcion);
         grid.add(precioContent,Field.FIELD_LEFT);

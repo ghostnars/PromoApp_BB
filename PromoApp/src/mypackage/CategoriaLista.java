@@ -6,6 +6,7 @@ import java.util.Vector;
 import net.rim.device.api.system.Bitmap;
 import net.rim.device.api.ui.Color;
 import net.rim.device.api.ui.Field;
+import net.rim.device.api.ui.Graphics;
 import net.rim.device.api.ui.TransitionContext;
 import net.rim.device.api.ui.Ui;
 import net.rim.device.api.ui.UiEngineInstance;
@@ -25,14 +26,18 @@ public class CategoriaLista extends Metodos{
 	
 	public CategoriaLista(){
 			setTitle("Categorias");
-			getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.GAINSBORO, Color.SILVER,Color.SILVER,Color.GAINSBORO));
+			getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.SILVER, Color.BLACK,Color.BLACK,Color.SILVER));
 	
-			Bitmap buttonRight = Bitmap.getBitmapResource( "flecha.png" );
+			Bitmap buttonRight = Bitmap.getBitmapResource( "next.png" );
 			Bitmap button1left = Bitmap.getBitmapResource( "pizza.png" );
     		for(int i=0;i<=6;i++){
-    			materias[i]= new ListStyleButtonField( button1left, "\t\nRestaurantes\n\n", buttonRight, 0 );
-    			materias[i].setBackground(BackgroundFactory.createLinearGradientBackground(Color.GAINSBORO, Color.WHITE,Color.WHITE,Color.GAINSBORO)) ; 
-    			materias[i].setMargin(0, 0, 3, 0);
+    			materias[i]= new ListStyleButtonField( button1left, "\t\nRestaurantes\n\n", buttonRight, 0 ){
+                    public void paint(Graphics g){      
+                        g.setColor(Color.WHITE);
+                        super.paint(g);
+                   }};;;
+    			materias[i].setBackground(BackgroundFactory.createLinearGradientBackground(Color.STEELBLUE, Color.LIGHTSTEELBLUE,Color.STEELBLUE,Color.LIGHTSTEELBLUE)) ; 
+    			materias[i].setMargin(0, 0, 2, 0);
     			materias[i].setChangeListener(this);
     			add(materias[i]);
     		}

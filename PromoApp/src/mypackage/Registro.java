@@ -32,7 +32,7 @@ public class Registro extends Metodos implements FieldChangeListener {
 	public  Registro (){
 		
 
-		getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.GAINSBORO, Color.SILVER,Color.WHITE,Color.WHITE));
+		getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.LIGHTSTEELBLUE, Color.LIGHTSTEELBLUE,Color.GAINSBORO,Color.GAINSBORO));
 		
 		LabelField titulo = new LabelField ("REGISTRO");
 		titulo.setMargin(20, 0, 0, 120);
