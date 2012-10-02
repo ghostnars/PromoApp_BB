@@ -74,7 +74,7 @@ public class AfiliadosMenu extends Metodos implements FieldChangeListener {
     	//Bitmap botonBitmap = Bitmap.getBitmapResource( "fondoboton.png" );
 	VerticalFieldManager allContent = new VerticalFieldManager(VerticalFieldManager.FIELD_HCENTER | VerticalFieldManager.USE_ALL_WIDTH);
 	
-	LabelField nombre = new LabelField("PIZZA HUT",Field.FIELD_LEFT){
+	LabelField nombre = new LabelField("PIZZA HUT",Field.FIELD_LEFT|LabelField.TRUNCATE_BEGINNING){
         public void paint(Graphics g){      
             g.setColor(Color.WHITE);
             super.paint(g);

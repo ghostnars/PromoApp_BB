@@ -1,26 +1,28 @@
 package mypackage;
 
+import net.rim.device.api.database.Database;
+import net.rim.device.api.database.DatabaseFactory;
+import net.rim.device.api.database.Statement;
+import net.rim.device.api.io.URI;
 import net.rim.device.api.system.Bitmap;
 import net.rim.device.api.ui.Color;
 import net.rim.device.api.ui.Field;
 import net.rim.device.api.ui.FieldChangeListener;
-import net.rim.device.api.ui.Graphics;
 import net.rim.device.api.ui.TransitionContext;
 import net.rim.device.api.ui.Ui;
 import net.rim.device.api.ui.UiEngineInstance;
 import net.rim.device.api.ui.XYEdges;
 import net.rim.device.api.ui.component.BasicEditField;
-import net.rim.device.api.ui.component.ButtonField;
+import net.rim.device.api.ui.component.Dialog;
 import net.rim.device.api.ui.component.EditField;
 import net.rim.device.api.ui.component.EmailAddressEditField;
 import net.rim.device.api.ui.component.LabelField;
 import net.rim.device.api.ui.container.HorizontalFieldManager;
 import net.rim.device.api.ui.container.VerticalFieldManager;
-
 import net.rim.device.api.ui.decor.BackgroundFactory;
 import net.rim.device.api.ui.decor.BorderFactory;
+import database.Config;
 import estilos.BitmapButtonField;
-import estilos.ListStyleButtonField;
 import estilos.Metodos;
 
 public class Registro extends Metodos implements FieldChangeListener {
@@ -28,6 +30,8 @@ public class Registro extends Metodos implements FieldChangeListener {
 		BasicEditField nombre,apellido;
 		EmailAddressEditField correo;
 		LabelField asd;
+		Config path = new Config();
+		Config statement = new Config();
 		
 	public  Registro (){
 		
@@ -48,7 +52,7 @@ public class Registro extends Metodos implements FieldChangeListener {
         
         Bitmap bordes = Bitmap.getBitmapResource("rounded-border1.png");
         VerticalFieldManager vfmNombre = new VerticalFieldManager(VerticalFieldManager.FIELD_RIGHT);
-        vfmNombre.setBorder(BorderFactory.createBitmapBorder(new XYEdges(10,10,10,10), bordes));
+        vfmNombre.setBorder(BorderFactory.createBitmapBorder(new XYEdges(12,12,12,12), bordes));
         vfmNombre.setMargin(10, 0, 0, 0);
         nombre = new BasicEditField("", "", 50, EditField.NO_NEWLINE);
         
@@ -63,7 +67,7 @@ public class Registro extends Metodos implements FieldChangeListener {
         
         
         VerticalFieldManager vfmApellido = new VerticalFieldManager(VerticalFieldManager.FIELD_RIGHT);
-        vfmApellido.setBorder(BorderFactory.createBitmapBorder(new XYEdges(10,10,10,10), bordes));
+        vfmApellido.setBorder(BorderFactory.createBitmapBorder(new XYEdges(12,12,12,12), bordes));
         vfmApellido.setMargin(10, 0, 0, 0);
         apellido = new BasicEditField("", "", 50, EditField.NO_NEWLINE);
         
@@ -78,7 +82,7 @@ public class Registro extends Metodos implements FieldChangeListener {
         
         
         VerticalFieldManager vfmCorreo = new VerticalFieldManager(VerticalFieldManager.FIELD_RIGHT);
-        vfmCorreo.setBorder(BorderFactory.createBitmapBorder(new XYEdges(10,10,10,10), bordes));
+        vfmCorreo.setBorder(BorderFactory.createBitmapBorder(new XYEdges(12,12,12,12), bordes));
         vfmCorreo.setMargin(10, 0, 0, 0);
         correo = new EmailAddressEditField("", "", 50);
 
@@ -101,6 +105,8 @@ public class Registro extends Metodos implements FieldChangeListener {
        allContent.add(contentInput); 
       
        add(allContent);
+       
+     
 		
 	}
 	
@@ -108,6 +114,24 @@ public class Registro extends Metodos implements FieldChangeListener {
 
 	public void fieldChanged(Field field, int context) {
 	if ( boton == field){
+		
+		 try{
+	   		//se inserta con un statement insertApunte de la clase config con los parametros
+	   		//titulo, apunte, prioridad, fecha
+			  String Nombre = nombre.getText();
+			  String Apellido = apellido.getText();
+			  String Correo = correo.getText();
+			  
+		    	URI uri = URI.create(path.Path());
+				Database sqliteDB = DatabaseFactory.open(uri);
+				//Statement st = sqliteDB.createStatement("INSERT INTO USUARIO(id_user,nombre,apellido,correo)VALUES(1,'hola','que ondas','ghost@gmail.com')");
+				Statement st = sqliteDB.createStatement(statement.InsertUsuario()+"1,'"+ Nombre +"','"+ Apellido +"','"+ Correo +"')");
+				st.prepare();
+				st.execute();
+				st.close();
+				sqliteDB.close();
+		    	Dialog.alert("Guardado con exito");
+	       
 		TransitionContext transition = new TransitionContext(TransitionContext.TRANSITION_SLIDE);
 		transition.setIntAttribute(TransitionContext.ATTR_DURATION, 200);
 		transition.setIntAttribute(TransitionContext.ATTR_DIRECTION, TransitionContext.DIRECTION_LEFT);
@@ -115,7 +139,10 @@ public class Registro extends Metodos implements FieldChangeListener {
 		UiEngineInstance engine = Ui.getUiEngineInstance();
 		engine.setTransition(this, null, UiEngineInstance.TRIGGER_PUSH, transition);
 		openScreen(new CategoriaLista());
-           
-		}
+          }catch (Exception e){
+	        Dialog.alert("error guardar "+e.getMessage().toString());
+	        e.printStackTrace();
+	        } 
+		} 
 	}	
 } 

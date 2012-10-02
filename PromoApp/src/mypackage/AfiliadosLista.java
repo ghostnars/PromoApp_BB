@@ -57,7 +57,7 @@ public class AfiliadosLista extends Metodos implements FieldChangeListener {
                         g.setColor(Color.WHITE);
                         super.paint(g);
                    }});
-				((Field) bb.elementAt(i)).setBackground(BackgroundFactory.createLinearGradientBackground(Color.STEELBLUE, Color.STEELBLUE,Color.LIGHTSTEELBLUE,Color.LIGHTSTEELBLUE)) ; 
+				((Field) bb.elementAt(i)).setBackground(BackgroundFactory.createLinearGradientBackground(Color.STEELBLUE, Color.LIGHTSTEELBLUE,Color.STEELBLUE,Color.LIGHTSTEELBLUE)) ; 
 				((Field) bb.elementAt(i)).setChangeListener(this);
 				((Field) bb.elementAt(i)).setMargin(0, 0, 2, 0);
 				add((Field)bb.elementAt(i));
