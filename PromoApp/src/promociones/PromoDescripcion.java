@@ -33,7 +33,7 @@ public class PromoDescripcion extends Metodos implements FieldChangeListener {
 		 try
 		 {
 		 	FontFamily ffFont = FontFamily.forName("Arial");
-		 	ffstyle = ffFont.getFont(Font.ANTIALIAS_DEFAULT, 15);
+		 	ffstyle = ffFont.getFont(Font.ANTIALIAS_STANDARD, 15);
 		 	
 		 }catch (ClassNotFoundException e){
 		 	   System.out.println(e.getMessage());
@@ -54,7 +54,10 @@ public class PromoDescripcion extends Metodos implements FieldChangeListener {
 		titulo.setMargin(10, 0, 0, 20);
 		add(titulo);
 		
-		HorizontalFieldManager btncontent = new HorizontalFieldManager(HorizontalFieldManager.FIELD_HCENTER );
+		HorizontalFieldManager btncontent = new HorizontalFieldManager(HorizontalFieldManager.FIELD_HCENTER);
+		
+		RichTextField descripcion = new RichTextField("Dos piezas al presentar y utiliar este cupon tiene derecho a canjear");
+		descripcion.setMargin(10, 0, 10, 30);
 		
 		btnCanjear = new BitmapButtonField(Bitmap.getBitmapResource("canjear1.png"), Bitmap.getBitmapResource("canjear0.png"),BitmapButtonField.FIELD_BOTTOM);
 		btnCanjear.setChangeListener(this);
@@ -66,25 +69,24 @@ public class PromoDescripcion extends Metodos implements FieldChangeListener {
 		
 		btnTwit = new BitmapButtonField(Bitmap.getBitmapResource("iconTwit0.png"), Bitmap.getBitmapResource("iconTwit1.png"),BitmapButtonField.FIELD_BOTTOM);
 		btnTwit.setChangeListener(this);
-		btnTwit.setMargin(0,5,0,5);
+		btnTwit.setMargin(0,5,0,45);
 		
 		
 		btncontent.add(btnCanjear);
 		btncontent.add(btnFace);
 		btncontent.add(btnTwit);
+		//btncontent.setPadding(0,20,0,0);
 		
-		RichTextField descripcion = new RichTextField("Dos piezas al presentar y utiliar este cupon tiene derecho a canjear");
-		descripcion.setMargin(10, 0, 10, 30);
 		
-		LabelField disponibilidad = new LabelField("Promociones disponibles:  2", Field.FIELD_LEFT);
+		LabelField disponibilidad = new LabelField("Promociones disponibles:  2", LabelField.USE_ALL_WIDTH );
 		disponibilidad.setFont(ffstyle);
 		
-		GridFieldManager grid = new GridFieldManager(3,1,0); 
+		GridFieldManager grid = new GridFieldManager(3,1,GridFieldManager.USE_ALL_WIDTH); 
 		grid.setBackground(BackgroundFactory.createLinearGradientBackground(Color.LIGHTSTEELBLUE, Color.LIGHTSTEELBLUE,Color.GAINSBORO,Color.GAINSBORO));
 		
-        grid.add(descripcion);
-        grid.add(btncontent);
-        grid.add(disponibilidad, Field.FIELD_LEFT);
+        grid.add(descripcion, USE_ALL_WIDTH);
+        grid.add(btncontent, USE_ALL_WIDTH);
+        grid.add(disponibilidad, Field.USE_ALL_WIDTH);
         grid.setPadding(10, 0, 10, 10);    
         grid.setMargin(10, 5, 5, 5);
         grid.setRowPadding(20);

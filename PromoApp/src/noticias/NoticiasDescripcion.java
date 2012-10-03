@@ -35,7 +35,7 @@ public class NoticiasDescripcion extends Metodos implements FieldChangeListener 
 		 try
 		 {
 		 	FontFamily ffFont = FontFamily.forName("Arial");
-		 	ffstyle = ffFont.getFont(Font.ANTIALIAS_DEFAULT, 16);
+		 	ffstyle = ffFont.getFont(Font.ANTIALIAS_STANDARD, 16);
 		 	ffstyle2 = ffFont.getFont(Font.ITALIC, 13);
 		 }catch (ClassNotFoundException e){
 		 	   System.out.println(e.getMessage());
@@ -65,7 +65,7 @@ public class NoticiasDescripcion extends Metodos implements FieldChangeListener 
 		
 		btnTwit = new BitmapButtonField(Bitmap.getBitmapResource("iconTwit0.png"), Bitmap.getBitmapResource("iconTwit1.png"),BitmapButtonField.FIELD_BOTTOM);
 		btnTwit.setChangeListener(this);
-		btnTwit.setMargin(0,95,0,5);
+		btnTwit.setMargin(0,110,0,5);
 		
 		
 

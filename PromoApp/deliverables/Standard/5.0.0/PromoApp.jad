@@ -1,0 +1,33 @@
+Manifest-Version: 1.0
+MIDlet-Version: 1.0
+MIDlet-Jar-Size: 557799
+RIM-COD-URL-5: PromoApp-5.cod
+RIM-COD-SHA1-5: 3b de e8 df ed d0 54 f7 32 d8 89 1b 0e c4 2b de 0f 5e ef 00
+RIM-COD-URL-4: PromoApp-4.cod
+RIM-COD-SHA1-4: 37 e6 da d2 a5 e7 af be ed 75 78 84 14 37 b1 f9 8e 64 58 4f
+RIM-COD-URL-3: PromoApp-3.cod
+RIM-COD-SHA1-3: 55 00 ca 71 3c af 88 d7 7d b8 9c f7 1d ca c3 d4 9a 84 a0 9c
+RIM-COD-URL-2: PromoApp-2.cod
+MicroEdition-Configuration: CLDC-1.1
+MIDlet-Jar-URL: PromoApp.jar
+RIM-COD-Module-Dependencies: net_rim_cldc,net_rim_os,net_rim_database,net_rim_ui_api,net_rim_jaxrpc
+RIM-COD-Size-5: 54752
+RIM-COD-SHA1-2: 7e 2f 47 68 35 b9 85 02 98 af 3a 38 40 b5 02 cb 27 ab 3d 68
+RIM-COD-URL-1: PromoApp-1.cod
+RIM-COD-Size-4: 50108
+RIM-COD-SHA1-1: 50 5d 12 e0 75 25 3c 7a 08 e6 71 bd 3a da 3a 2d 88 15 48 51
+RIM-COD-Size-3: 50212
+RIM-COD-Size-2: 52316
+RIM-MIDlet-Flags-1: 0
+RIM-COD-Size-1: 33228
+RIM-COD-Module-Name: PromoApp
+MIDlet-Name: PromoApp
+RIM-COD-Size: 60328
+RIM-COD-Creation-Time: 1349220496
+RIM-MIDlet-Position-1: 1
+MIDlet-1: PromoApp,img/pizza.png,
+RIM-COD-URL: PromoApp.cod
+MIDlet-Description: Promo App
+RIM-COD-SHA1: 06 b5 73 b2 59 ae c7 33 41 1b bd cb 0b 25 19 db 68 62 af 2e
+MicroEdition-Profile: MIDP-2.0
+MIDlet-Vendor: IMOVES

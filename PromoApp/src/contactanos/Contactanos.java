@@ -44,7 +44,7 @@ public class Contactanos extends Metodos implements FieldChangeListener {
 
 public Contactanos(){
 		setTitle("Contactanos");
-		getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.LIGHTSTEELBLUE, Color.LIGHTSTEELBLUE,Color.GAINSBORO,Color.GAINSBORO));
+		getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.GRAY, Color.GRAY,Color.GAINSBORO,Color.GAINSBORO));
 		 try
 		 {
 		 	FontFamily ffFont = FontFamily.forName("Arial");
@@ -60,8 +60,7 @@ public Contactanos(){
 		 add(img);
 		 
 		 VerticalFieldManager telefono = new VerticalFieldManager(Field.USE_ALL_WIDTH);
-		 telefono.setBackground(BackgroundFactory.createLinearGradientBackground(Color.SILVER, Color.SILVER,Color.SILVER,Color.SILVER));
-			
+		 telefono.setBackground(BackgroundFactory.createLinearGradientBackground(Color.LIGHTSTEELBLUE, Color.LIGHTSTEELBLUE,Color.GAINSBORO,Color.GAINSBORO));
 			//AGREGAR A PANTALLA CADA ELEMENTO
 			
 		 numeroTel = new LabelField("Telefono: " + "2296-2276");
@@ -83,7 +82,7 @@ public Contactanos(){
 			//CREAR ELEMENTO DE LISTA
 	    	//Bitmap elementoBitmap = Bitmap.getBitmapResource("fondomaterias.png");
 			VerticalFieldManager elementolista = new VerticalFieldManager(Field.USE_ALL_WIDTH);
-			elementolista.setBackground(BackgroundFactory.createLinearGradientBackground(Color.SILVER, Color.SILVER,Color.SILVER,Color.SILVER));
+			elementolista.setBackground(BackgroundFactory.createLinearGradientBackground(Color.LIGHTSTEELBLUE, Color.LIGHTSTEELBLUE,Color.LIGHTSTEELBLUE,Color.LIGHTSTEELBLUE));
 			
 			//AGREGAR A PANTALLA CADA ELEMENTO
 			

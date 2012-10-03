@@ -40,7 +40,7 @@ public class AfiliadosLista extends Metodos implements FieldChangeListener {
 	 try
 	 {
 	 	FontFamily ffFont = FontFamily.forName("Arial");
-	 	ffecha = ffFont.getFont(Font.ANTIALIAS_DEFAULT, 5);
+	 	ffecha = ffFont.getFont(Font.ANTIALIAS_STANDARD, 5);
 	 	
 	 }catch (ClassNotFoundException e){
 	 	   System.out.println(e.getMessage());

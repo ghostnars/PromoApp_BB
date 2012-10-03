@@ -17,7 +17,7 @@ import net.rim.device.api.ui.container.MainScreen;
 import estilos.Utils;
 
 public class SplashScreen extends MainScreen {
-	int var = 0;
+	String var = "vacio";
 	Config path = new Config();
 	Config statement = new Config();
     public SplashScreen() {
@@ -66,7 +66,12 @@ public class SplashScreen extends MainScreen {
             		//si i no incremento en nada var toma el valor de uno
                     if (i==0)
                     {
-                    	var = 1;
+                    	var = "no";
+                		
+                    }
+                    if (i==1)
+                    {
+                    	var = "si";
                 		
                     }
                    
@@ -76,20 +81,21 @@ public class SplashScreen extends MainScreen {
             }
 
         // wait then open new screen
-        MyApp.homeScreen = new CategoriaLista();
-        MyApp.homeScreen1 = new Registro();
+        
+        MyApp.homeScreen = new Registro();
+        MyApp.homeScreen1 = new CategoriaLista();
         UiApplication.getUiApplication().invokeLater(new Runnable() {
         	
             public void run() {
             	//si var es igual a uno dirige a homescreen1 que en este caso es login
-            	if(var == 1){
-            	UiApplication.getUiApplication().pushScreen(MyApp.homeScreen1);
+            	if(var.equals("no")){
+            	UiApplication.getUiApplication().pushScreen(MyApp.homeScreen);
                 UiApplication.getUiApplication().popScreen(MyApp.splashScreen);
                 //si var no trae uno entonces es porque trae datos que "la base de datos ha sido creada"
                 //y apunta a materia lista.
             	}
-            	if(var == 0){
-            	UiApplication.getUiApplication().pushScreen(MyApp.homeScreen);
+            	if(var.equals("si")){
+            	UiApplication.getUiApplication().pushScreen(MyApp.homeScreen1);
                 UiApplication.getUiApplication().popScreen(MyApp.splashScreen);	
             	}
                 

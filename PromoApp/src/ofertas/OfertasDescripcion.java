@@ -64,7 +64,7 @@ public class OfertasDescripcion extends Metodos implements FieldChangeListener {
 		
 		btnTwit = new BitmapButtonField(Bitmap.getBitmapResource("iconTwit0.png"), Bitmap.getBitmapResource("iconTwit1.png"),BitmapButtonField.FIELD_BOTTOM);
 		btnTwit.setChangeListener(this);
-		btnTwit.setMargin(0,95,0,5);
+		btnTwit.setMargin(0,110,0,5);
 		
 		
 

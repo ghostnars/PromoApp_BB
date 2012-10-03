@@ -59,7 +59,7 @@ public class AfiliadosMenu extends Metodos implements FieldChangeListener {
    	 try
    	 {
    	 	FontFamily ffFont = FontFamily.forName("Arial");
-   	 	ffecha = ffFont.getFont(Font.ANTIALIAS_DEFAULT, 14);
+   	 	ffecha = ffFont.getFont(Font.ANTIALIAS_STANDARD, 14);
    	 	
    	 }catch (ClassNotFoundException e){
    	 	   System.out.println(e.getMessage());

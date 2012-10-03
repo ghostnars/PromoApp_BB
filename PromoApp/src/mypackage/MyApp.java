@@ -24,8 +24,8 @@ public class MyApp extends UiApplication
 
 	static MainScreen splashScreen = null, homeScreen = null, homeScreen1 = null;
 	static int	g_nScreenWidth = 0, g_nScreenHeight = 0;
-	Config path = new Config();
-	Config statement = new Config();
+	static Config path = new Config();
+	static Config statement = new Config();
 	
     public static void main(String[] args)
     {
@@ -33,6 +33,7 @@ public class MyApp extends UiApplication
         // running thread the application's event dispatch thread.
         MyApp theApp = new MyApp();       
         theApp.enterEventDispatcher(); 
+   
     }
     /**
      * Creates a new MyApp object
