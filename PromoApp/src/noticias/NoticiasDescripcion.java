@@ -41,20 +41,20 @@ public class NoticiasDescripcion extends Metodos implements FieldChangeListener 
 		 	   System.out.println(e.getMessage());
 		 }
 
-		 getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.LIGHTSTEELBLUE, Color.LIGHTSTEELBLUE,Color.GAINSBORO,Color.GAINSBORO));
-			
+		// getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.LIGHTSTEELBLUE, Color.LIGHTSTEELBLUE,Color.GAINSBORO,Color.GAINSBORO));
+		 getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.BLACK, Color.BLACK,Color.BLACK,Color.BLACK));	
 		Bitmap logoBitmap = Bitmap.getBitmapResource( "changeLogo.jpg" );
 		Bitmap backBitmap = Bitmap.getBitmapResource( "dbackground.png" );
 		
 		HorizontalFieldManager imgPromo = new HorizontalFieldManager(HorizontalFieldManager.FIELD_LEFT );
 		imgPromo.setBackground(BackgroundFactory.createBitmapBackground(logoBitmap));
 		imgPromo.setPadding(66,155,66,155);
-		imgPromo.setMargin(5,5,7,5);
+		imgPromo.setMargin(5,5,0,5);
 		add(imgPromo);
 
 		LabelField titulo = new LabelField ("Descripcion:");
-		titulo.setMargin(10, 0, 0, 20);
-		add(titulo);
+		//titulo.setMargin(10, 0, 0, 20);
+		//add(titulo);
 		
 	HorizontalFieldManager btncontent = new HorizontalFieldManager(HorizontalFieldManager.FIELD_HCENTER );
 		
@@ -65,7 +65,7 @@ public class NoticiasDescripcion extends Metodos implements FieldChangeListener 
 		
 		btnTwit = new BitmapButtonField(Bitmap.getBitmapResource("iconTwit0.png"), Bitmap.getBitmapResource("iconTwit1.png"),BitmapButtonField.FIELD_BOTTOM);
 		btnTwit.setChangeListener(this);
-		btnTwit.setMargin(0,110,0,5);
+		btnTwit.setMargin(0,113,0,5);
 		
 		
 
@@ -86,16 +86,16 @@ public class NoticiasDescripcion extends Metodos implements FieldChangeListener 
 		fecha.setFont(ffstyle2);
 
 		
-		GridFieldManager grid = new GridFieldManager(4,1,0); 
-		grid.setBackground(BackgroundFactory.createLinearGradientBackground(Color.LIGHTSTEELBLUE, Color.LIGHTSTEELBLUE,Color.GAINSBORO,Color.GAINSBORO));
-		
+		GridFieldManager grid = new GridFieldManager(5,1,0); 
+		grid.setBackground(BackgroundFactory.createBitmapBackground(Bitmap.getBitmapResource("numbergradeG.png"))) ; 
+		grid.add(titulo);
         grid.add(tituloNoticia);
         grid.add(contenido,Field.FIELD_LEFT);
         grid.add(fecha);
         grid.add(btncontent);
         grid.setPadding(10, 0, 10, 10);    
-        grid.setMargin(10, 5, 5, 5);
-        grid.setRowPadding(20);
+        grid.setMargin(5, 5, 5, 5);
+        grid.setRowPadding(15);
         add(grid);
 		
 	}

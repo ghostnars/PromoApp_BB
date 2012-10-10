@@ -25,7 +25,7 @@ public class SplashScreen extends MainScreen {
         setTitle((LabelField)null) ; // hide screen title
 
        
-        BitmapField bmp = new BitmapField(Utils.getFitBitmapImage("splash.png",320, 240),
+        BitmapField bmp = new BitmapField(Utils.getFitBitmapImage("splashscreen.png",320, 240),
         		BitmapField.FIELD_HCENTER | BitmapField.FIELD_VCENTER);  
         
         HorizontalFieldManager rowHolder = new HorizontalFieldManager(NO_HORIZONTAL_SCROLL | NO_VERTICAL_SCROLL|

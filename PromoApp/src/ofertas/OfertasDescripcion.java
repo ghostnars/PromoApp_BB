@@ -40,7 +40,7 @@ public class OfertasDescripcion extends Metodos implements FieldChangeListener {
 		 	   System.out.println(e.getMessage());
 		 }
 
-		 getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.LIGHTSTEELBLUE, Color.LIGHTSTEELBLUE,Color.GAINSBORO,Color.GAINSBORO));
+		 getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.BLACK, Color.BLACK,Color.BLACK,Color.BLACK));
 			
 		Bitmap logoBitmap = Bitmap.getBitmapResource( "imgPromo.jpg" );
 		Bitmap backBitmap = Bitmap.getBitmapResource( "dbackground.png" );
@@ -52,8 +52,8 @@ public class OfertasDescripcion extends Metodos implements FieldChangeListener {
 		add(imgPromo);
 
 		LabelField titulo = new LabelField ("Descripcion:");
-		titulo.setMargin(10, 0, 0, 20);
-		add(titulo);
+		//titulo.setMargin(10, 0, 0, 20);
+		//add(titulo);
 		
 	HorizontalFieldManager btncontent = new HorizontalFieldManager(HorizontalFieldManager.FIELD_HCENTER );
 		
@@ -64,7 +64,7 @@ public class OfertasDescripcion extends Metodos implements FieldChangeListener {
 		
 		btnTwit = new BitmapButtonField(Bitmap.getBitmapResource("iconTwit0.png"), Bitmap.getBitmapResource("iconTwit1.png"),BitmapButtonField.FIELD_BOTTOM);
 		btnTwit.setChangeListener(this);
-		btnTwit.setMargin(0,110,0,5);
+		btnTwit.setMargin(0,113,0,5);
 		
 		
 
@@ -93,9 +93,9 @@ public class OfertasDescripcion extends Metodos implements FieldChangeListener {
 		vencimiento.setFont(ffstyle2);
 
 		
-		GridFieldManager grid = new GridFieldManager(4,1,0); 
-		grid.setBackground(BackgroundFactory.createLinearGradientBackground(Color.LIGHTSTEELBLUE, Color.LIGHTSTEELBLUE,Color.GAINSBORO,Color.GAINSBORO));
-		
+		GridFieldManager grid = new GridFieldManager(5,1,0); 
+		grid.setBackground(BackgroundFactory.createBitmapBackground(Bitmap.getBitmapResource("numbergradeG.png"))) ; 
+		grid.add(titulo);
         grid.add(descripcion);
         grid.add(precioContent,Field.FIELD_LEFT);
         grid.add(vencimiento);

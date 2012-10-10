@@ -26,18 +26,16 @@ public class CategoriaLista extends Metodos{
 	
 	public CategoriaLista(){
 			setTitle("Categorias");
-			getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.SILVER, Color.BLACK,Color.BLACK,Color.SILVER));
-	
+			//getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.SILVER, Color.BLACK,Color.BLACK,Color.SILVER));
+			getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.BLACK, Color.BLACK,Color.BLACK,Color.BLACK));
+			
 			Bitmap buttonRight = Bitmap.getBitmapResource( "next.png" );
 			Bitmap button1left = Bitmap.getBitmapResource( "pizza.png" );
     		for(int i=0;i<=6;i++){
-    			materias[i]= new ListStyleButtonField( button1left, "\t\nRestaurantes\n\n", buttonRight, 0 ){
-                    public void paint(Graphics g){      
-                        g.setColor(Color.WHITE);
-                        super.paint(g);
-                   }};;;
-    			materias[i].setBackground(BackgroundFactory.createLinearGradientBackground(Color.STEELBLUE, Color.LIGHTSTEELBLUE,Color.STEELBLUE,Color.LIGHTSTEELBLUE)) ; 
-    			materias[i].setMargin(0, 0, 2, 0);
+    			materias[i]= new ListStyleButtonField( button1left, "\t\nRestaurantes\n\n", buttonRight, 0 );
+    			//materias[i].setBackground(BackgroundFactory.createLinearGradientBackground(Color.STEELBLUE, Color.LIGHTSTEELBLUE,Color.STEELBLUE,Color.LIGHTSTEELBLUE)) ; 
+    			materias[i].setBackground(BackgroundFactory.createBitmapBackground(Bitmap.getBitmapResource("fondomaterias.png"))) ; 
+    			materias[i].setMargin(0, 3, 3, 3);
     			materias[i].setChangeListener(this);
     			add(materias[i]);
     		}

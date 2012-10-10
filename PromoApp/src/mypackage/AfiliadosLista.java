@@ -8,7 +8,6 @@ import net.rim.device.api.ui.Field;
 import net.rim.device.api.ui.FieldChangeListener;
 import net.rim.device.api.ui.Font;
 import net.rim.device.api.ui.FontFamily;
-import net.rim.device.api.ui.Graphics;
 import net.rim.device.api.ui.TransitionContext;
 import net.rim.device.api.ui.Ui;
 import net.rim.device.api.ui.UiEngineInstance;
@@ -35,8 +34,8 @@ public class AfiliadosLista extends Metodos implements FieldChangeListener {
     public AfiliadosLista()
     {  
     	setTitle("Afiliados");
-		getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.SILVER, Color.BLACK,Color.BLACK,Color.SILVER));
-
+		//getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.SILVER, Color.BLACK,Color.BLACK,Color.SILVER));
+    	getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.BLACK, Color.BLACK,Color.BLACK,Color.BLACK));
 	 try
 	 {
 	 	FontFamily ffFont = FontFamily.forName("Arial");
@@ -52,14 +51,12 @@ public class AfiliadosLista extends Metodos implements FieldChangeListener {
 					String nombre = "PIZZA HUT";
 					String slogan ="Las mejores pizzas";
 					String ubicacion="8º etapa local ";
-				bb.addElement(new ListStyleButtonField( button1left, nombre+"\n"+slogan+"\n"+ubicacion+i+"\n\n", buttonRight, 0 ){
-                    public void paint(Graphics g){      
-                        g.setColor(Color.WHITE);
-                        super.paint(g);
-                   }});
-				((Field) bb.elementAt(i)).setBackground(BackgroundFactory.createLinearGradientBackground(Color.STEELBLUE, Color.LIGHTSTEELBLUE,Color.STEELBLUE,Color.LIGHTSTEELBLUE)) ; 
+				bb.addElement(new ListStyleButtonField( button1left, "\n"+nombre+"\n"+slogan+"\n"+ubicacion+i+"\n\n", buttonRight, 0 ));
+                   
+				//((Field) bb.elementAt(i)).setBackground(BackgroundFactory.createLinearGradientBackground(Color.STEELBLUE, Color.LIGHTSTEELBLUE,Color.STEELBLUE,Color.LIGHTSTEELBLUE)) ; 
+				((Field) bb.elementAt(i)).setBackground(BackgroundFactory.createBitmapBackground(Bitmap.getBitmapResource("fondomaterias.png")));
 				((Field) bb.elementAt(i)).setChangeListener(this);
-				((Field) bb.elementAt(i)).setMargin(0, 0, 2, 0);
+				((Field) bb.elementAt(i)).setMargin(0, 4, 3, 4);
 				add((Field)bb.elementAt(i));
 				
 

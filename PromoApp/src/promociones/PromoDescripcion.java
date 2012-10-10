@@ -7,6 +7,7 @@ import net.rim.device.api.ui.Field;
 import net.rim.device.api.ui.FieldChangeListener;
 import net.rim.device.api.ui.Font;
 import net.rim.device.api.ui.FontFamily;
+import net.rim.device.api.ui.Graphics;
 import net.rim.device.api.ui.TransitionContext;
 import net.rim.device.api.ui.Ui;
 import net.rim.device.api.ui.UiEngineInstance;
@@ -39,27 +40,28 @@ public class PromoDescripcion extends Metodos implements FieldChangeListener {
 		 	   System.out.println(e.getMessage());
 		 }
 
-		getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.LIGHTSTEELBLUE, Color.LIGHTSTEELBLUE,Color.GAINSBORO,Color.GAINSBORO));
+		//getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.LIGHTSTEELBLUE, Color.LIGHTSTEELBLUE,Color.GAINSBORO,Color.GAINSBORO));
+		getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.BLACK, Color.BLACK,Color.BLACK,Color.BLACK));
 		
 		Bitmap logoBitmap = Bitmap.getBitmapResource( "imgPromo.jpg" );
-		Bitmap backBitmap = Bitmap.getBitmapResource( "dbackground.png" );
+
 		
 		HorizontalFieldManager imgPromo = new HorizontalFieldManager(HorizontalFieldManager.FIELD_LEFT );
 		imgPromo.setBackground(BackgroundFactory.createBitmapBackground(logoBitmap));
 		imgPromo.setPadding(66,155,66,155);
-		imgPromo.setMargin(5,5,7,5);
+		imgPromo.setMargin(5,5,5,5);
 		add(imgPromo);
 
 		LabelField titulo = new LabelField ("Descripcion:");
-		titulo.setMargin(10, 0, 0, 20);
-		add(titulo);
+		//titulo.setMargin(10, 0, 0, 10);
+		//add(titulo);
 		
 		HorizontalFieldManager btncontent = new HorizontalFieldManager(HorizontalFieldManager.FIELD_HCENTER);
 		
 		RichTextField descripcion = new RichTextField("Dos piezas al presentar y utiliar este cupon tiene derecho a canjear");
 		descripcion.setMargin(10, 0, 10, 30);
 		
-		btnCanjear = new BitmapButtonField(Bitmap.getBitmapResource("canjear1.png"), Bitmap.getBitmapResource("canjear0.png"),BitmapButtonField.FIELD_BOTTOM);
+		btnCanjear = new BitmapButtonField(Bitmap.getBitmapResource("canjear0.png"), Bitmap.getBitmapResource("canjear1.png"),BitmapButtonField.FIELD_BOTTOM);
 		btnCanjear.setChangeListener(this);
 		btnCanjear.setMargin(0,5,0,40);
 		
@@ -69,7 +71,7 @@ public class PromoDescripcion extends Metodos implements FieldChangeListener {
 		
 		btnTwit = new BitmapButtonField(Bitmap.getBitmapResource("iconTwit0.png"), Bitmap.getBitmapResource("iconTwit1.png"),BitmapButtonField.FIELD_BOTTOM);
 		btnTwit.setChangeListener(this);
-		btnTwit.setMargin(0,5,0,45);
+		btnTwit.setMargin(0,49,0,5);
 		
 		
 		btncontent.add(btnCanjear);
@@ -81,9 +83,10 @@ public class PromoDescripcion extends Metodos implements FieldChangeListener {
 		LabelField disponibilidad = new LabelField("Promociones disponibles:  2", LabelField.USE_ALL_WIDTH );
 		disponibilidad.setFont(ffstyle);
 		
-		GridFieldManager grid = new GridFieldManager(3,1,GridFieldManager.USE_ALL_WIDTH); 
-		grid.setBackground(BackgroundFactory.createLinearGradientBackground(Color.LIGHTSTEELBLUE, Color.LIGHTSTEELBLUE,Color.GAINSBORO,Color.GAINSBORO));
-		
+		GridFieldManager grid = new GridFieldManager(4,1,GridFieldManager.USE_ALL_WIDTH); 
+		//grid.setBackground(BackgroundFactory.createLinearGradientBackground(Color.LIGHTSTEELBLUE, Color.LIGHTSTEELBLUE,Color.GAINSBORO,Color.GAINSBORO));
+		grid.setBackground(BackgroundFactory.createBitmapBackground(Bitmap.getBitmapResource("numbergradeG.png"))); 
+		grid.add(titulo);
         grid.add(descripcion, USE_ALL_WIDTH);
         grid.add(btncontent, USE_ALL_WIDTH);
         grid.add(disponibilidad, Field.USE_ALL_WIDTH);

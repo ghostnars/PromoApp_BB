@@ -54,7 +54,7 @@ public class AfiliadosMenu extends Metodos implements FieldChangeListener {
 	private BitmapButtonField btnPromo;
     public AfiliadosMenu()
     {
-    	getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.LIGHTSTEELBLUE, Color.LIGHTSTEELBLUE,Color.GAINSBORO,Color.GAINSBORO));
+    	getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.BLACK, Color.BLACK,Color.BLACK,Color.BLACK));
 		
    	 try
    	 {
@@ -96,7 +96,7 @@ public class AfiliadosMenu extends Metodos implements FieldChangeListener {
 	local.setMargin(0,0,3,10);
 	
 	HorizontalFieldManager head = new HorizontalFieldManager(HorizontalFieldManager.FIELD_LEFT | HorizontalFieldManager.USE_ALL_WIDTH );
-	head.setBackground(BackgroundFactory.createLinearGradientBackground(Color.STEELBLUE, Color.STEELBLUE,Color.LIGHTSTEELBLUE,Color.LIGHTSTEELBLUE));
+	head.setBackground(BackgroundFactory.createBitmapBackground(Bitmap.getBitmapResource("fondomaterias.png")));
 
 	HorizontalFieldManager logo = new HorizontalFieldManager(HorizontalFieldManager.FIELD_LEFT );
 	logo.setBackground(BackgroundFactory.createBitmapBackground(logoBitmap));

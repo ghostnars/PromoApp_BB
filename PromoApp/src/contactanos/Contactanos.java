@@ -44,8 +44,9 @@ public class Contactanos extends Metodos implements FieldChangeListener {
 
 public Contactanos(){
 		setTitle("Contactanos");
-		getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.GRAY, Color.GRAY,Color.GAINSBORO,Color.GAINSBORO));
-		 try
+		//getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.GRAY, Color.GRAY,Color.GAINSBORO,Color.GAINSBORO));
+		getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.BLACK, Color.BLACK,Color.BLACK,Color.BLACK));
+		try
 		 {
 		 	FontFamily ffFont = FontFamily.forName("Arial");
 		 	ffstyle = ffFont.getFont(Font.BOLD, 16);
@@ -60,13 +61,14 @@ public Contactanos(){
 		 add(img);
 		 
 		 VerticalFieldManager telefono = new VerticalFieldManager(Field.USE_ALL_WIDTH);
-		 telefono.setBackground(BackgroundFactory.createLinearGradientBackground(Color.LIGHTSTEELBLUE, Color.LIGHTSTEELBLUE,Color.GAINSBORO,Color.GAINSBORO));
+		 //telefono.setBackground(BackgroundFactory.createLinearGradientBackground(Color.LIGHTSTEELBLUE, Color.LIGHTSTEELBLUE,Color.GAINSBORO,Color.GAINSBORO));
+		 telefono.setBackground(BackgroundFactory.createBitmapBackground(Bitmap.getBitmapResource("fondomaterias.png"))) ; 
 			//AGREGAR A PANTALLA CADA ELEMENTO
 			
 		 numeroTel = new LabelField("Telefono: " + "2296-2276");
 		 telefono.add(numeroTel);
-		 telefono.setMargin(5, 5, 10, 5);
-		 telefono.setPadding(10, 0, 10, 15);
+		 telefono.setMargin(5, 5, 5, 5);
+		 telefono.setPadding(5, 0, 10, 15);
 		add(telefono);
 			
 		for(int i=0;i<=3;i++){
@@ -76,21 +78,21 @@ public Contactanos(){
 			
 		contact = new LabelField("Facebook");
 		contact.setFont(ffstyle);
-		tipoContact = new LabelField("\t"+"www.facebook.com/PizzaHut");
+		tipoContact = new LabelField("\t"+"www.facebook.com/PizzaHut "+i);
 		tipoContact.setFont(ffstyle2);
 
 			//CREAR ELEMENTO DE LISTA
 	    	//Bitmap elementoBitmap = Bitmap.getBitmapResource("fondomaterias.png");
 			VerticalFieldManager elementolista = new VerticalFieldManager(Field.USE_ALL_WIDTH);
-			elementolista.setBackground(BackgroundFactory.createLinearGradientBackground(Color.LIGHTSTEELBLUE, Color.LIGHTSTEELBLUE,Color.LIGHTSTEELBLUE,Color.LIGHTSTEELBLUE));
-			
+			//elementolista.setBackground(BackgroundFactory.createLinearGradientBackground(Color.LIGHTSTEELBLUE, Color.LIGHTSTEELBLUE,Color.LIGHTSTEELBLUE,Color.LIGHTSTEELBLUE));
+			elementolista.setBackground(BackgroundFactory.createBitmapBackground(Bitmap.getBitmapResource("fondoapunte.png"))) ; 
 			//AGREGAR A PANTALLA CADA ELEMENTO
 			
 			elementolista.add(materias[i]);
 			elementolista.add(contact);
 			elementolista.add(tipoContact);
 			elementolista.setMargin(0, 5, 0, 5);
-			elementolista.setPadding(10, 0, 10, 15);
+			elementolista.setPadding(5, 0, 10, 15);
 			add(elementolista);
 			
 		}

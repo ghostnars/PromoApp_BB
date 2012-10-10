@@ -31,7 +31,8 @@ public class Promociones extends Metodos implements FieldChangeListener {
     public Promociones()
     {  
     	setTitle("Promociones");
-		getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.SILVER, Color.BLACK,Color.BLACK,Color.SILVER));
+		getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.BLACK, Color.BLACK,Color.BLACK,Color.BLACK));
+		//getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.SILVER, Color.BLACK,Color.BLACK,Color.SILVER));
 
 
 		Bitmap buttonRight = Bitmap.getBitmapResource( "next.png" );
@@ -40,14 +41,12 @@ public class Promociones extends Metodos implements FieldChangeListener {
 				for(int i=0;i<=10;i++){
 					String nombre = "PIZZA HUT";
 					String promo =" pizzas gratis";
-				bb.addElement(new ListStyleButtonField( button1left, "\n"+nombre+"\n"+i+promo+"\n\n", buttonRight, 0 ){
-			        public void paint(Graphics g){      
-			            g.setColor(Color.WHITE);
-			            super.paint(g);
-			       }});
-				((Field) bb.elementAt(i)).setBackground(BackgroundFactory.createLinearGradientBackground(Color.STEELBLUE, Color.LIGHTSTEELBLUE,Color.STEELBLUE,Color.LIGHTSTEELBLUE)) ; 
+				bb.addElement(new ListStyleButtonField( button1left, "\n"+nombre+"\n"+i+promo+"\n\n", buttonRight, 0 ));
+			       
+				((Field) bb.elementAt(i)).setBackground(BackgroundFactory.createBitmapBackground(Bitmap.getBitmapResource("fondomaterias.png")));
+				//((Field) bb.elementAt(i)).setBackground(BackgroundFactory.createLinearGradientBackground(Color.STEELBLUE, Color.LIGHTSTEELBLUE,Color.STEELBLUE,Color.LIGHTSTEELBLUE)) ; 
 				((Field) bb.elementAt(i)).setChangeListener(this);
-				((Field) bb.elementAt(i)).setMargin(0, 0, 2, 0);
+				((Field) bb.elementAt(i)).setMargin(0, 3, 3, 3);
 				add((Field)bb.elementAt(i));
 				
 

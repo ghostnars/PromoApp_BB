@@ -31,7 +31,7 @@ public class Ofertas extends Metodos implements FieldChangeListener {
     public Ofertas()
     {  
     	setTitle("Ofertas");
-		getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.SILVER, Color.BLACK,Color.BLACK,Color.SILVER));
+		getMainManager().setBackground(BackgroundFactory.createLinearGradientBackground(Color.BLACK, Color.BLACK,Color.BLACK,Color.BLACK));
 
 		Bitmap buttonRight = Bitmap.getBitmapResource( "next.png" );
 		Bitmap button1left = Bitmap.getBitmapResource( "oferta.png" );
@@ -41,9 +41,10 @@ public class Ofertas extends Metodos implements FieldChangeListener {
 					String promo ="Banquete familiar";
 					String precioOferta ="$";
 				bb.addElement(new ListStyleButtonField( button1left,"\n"+nombre+"\n"+promo+"\n"+precioOferta+i+"0.บบ"+"\n\n", buttonRight, 0 ));
-				((Field) bb.elementAt(i)).setBackground(BackgroundFactory.createLinearGradientBackground(Color.STEELBLUE, Color.LIGHTSTEELBLUE,Color.STEELBLUE,Color.LIGHTSTEELBLUE)) ; 
+				//((Field) bb.elementAt(i)).setBackground(BackgroundFactory.createLinearGradientBackground(Color.STEELBLUE, Color.LIGHTSTEELBLUE,Color.STEELBLUE,Color.LIGHTSTEELBLUE)) ; 
+				((Field) bb.elementAt(i)).setBackground(BackgroundFactory.createBitmapBackground(Bitmap.getBitmapResource("fondomaterias.png"))); 
 				((Field) bb.elementAt(i)).setChangeListener(this);
-				((Field) bb.elementAt(i)).setMargin(0, 0, 2, 0);
+				((Field) bb.elementAt(i)).setMargin(0, 3, 3, 3);
 				add((Field)bb.elementAt(i));
 				
 
